@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#8d3159">
+<title>Feliz Aniversário, Mãe ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"DM Sans",Arial,sans-serif;
+  color:#3a2630;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255,255,255,.75), transparent 30%),
+    radial-gradient(circle at 90% 20%, rgba(255,214,228,.65), transparent 28%),
+    linear-gradient(135deg,#fff7fa 0%,#fde8f0 48%,#fff9f4 100%);
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;opacity:.22;
+  background-image:radial-gradient(#b55a7b 0.7px,transparent .7px);
+  background-size:18px 18px;
+}
+.container{width:min(1100px,92%);margin:auto}
+.hero{min-height:100vh;display:grid;place-items:center;padding:70px 0;position:relative}
+.hero-card{
+  width:min(920px,100%);padding:58px 28px 48px;text-align:center;
+  border:1px solid rgba(166,75,111,.18);border-radius:34px;
+  background:rgba(255,255,255,.72);backdrop-filter:blur(12px);
+  box-shadow:0 30px 80px rgba(112,43,70,.14);
+  animation:rise 1s ease both;
+}
+.kicker{letter-spacing:.22em;text-transform:uppercase;font-size:.75rem;font-weight:700;color:#a94c72}
+h1{font-family:"Playfair Display",serif;font-size:clamp(3rem,8vw,6.4rem);line-height:.95;margin:18px 0;color:#7e294e}
+.hero p{max-width:650px;margin:22px auto;color:#684956;font-size:1.08rem;line-height:1.8}
+.heart{font-size:4rem;display:inline-block;animation:pulse 1.6s infinite}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  background:#8d3159;color:white;border:0;padding:14px 22px;border-radius:999px;
+  font-weight:700;cursor:pointer;box-shadow:0 12px 25px rgba(141,49,89,.25);
+  transition:.25s transform,.25s box-shadow;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(141,49,89,.3)}
+section{padding:90px 0}
+.section-title{font-family:"Playfair Display",serif;text-align:center;color:#7e294e;font-size:clamp(2rem,5vw,3.3rem);margin-bottom:14px}
+.section-subtitle{text-align:center;color:#735563;max-width:680px;margin:0 auto 42px;line-height:1.7}
+.letter{
+  max-width:820px;margin:auto;background:white;border-radius:28px;padding:44px;
+  box-shadow:0 25px 70px rgba(112,43,70,.12);border:1px solid #f0d4df;
+  position:relative;
+}
+.letter::before{content:"♥";position:absolute;right:26px;top:20px;color:#e1a2b9;font-size:2rem}
+.letter p{font-family:"Playfair Display",serif;font-size:1.16rem;line-height:1.9;margin:0 0 18px;color:#49343d}
+.signature{font-family:"Playfair Display",serif;color:#8d3159;font-size:1.35rem;text-align:right;margin-top:28px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.photo-card{
+  background:white;border-radius:22px;overflow:hidden;border:1px solid #f0d4df;
+  box-shadow:0 14px 38px rgba(112,43,70,.1);cursor:pointer;
+  transition:.3s transform,.3s box-shadow;
+}
+.photo-card:hover{transform:translateY(-7px) rotate(.2deg);box-shadow:0 22px 48px rgba(112,43,70,.16)}
+.photo-card img{display:block;width:100%;height:330px;object-fit:cover}
+.photo-card figcaption{padding:16px 17px 18px;color:#684956;font-size:.94rem}
+.final{
+  text-align:center;padding:85px 20px 100px;
+  background:linear-gradient(180deg,transparent,rgba(255,220,232,.5));
+}
+.final .big{font-family:"Playfair Display",serif;color:#7e294e;font-size:clamp(2.4rem,6vw,4.5rem);margin:10px 0 18px}
+.final p{color:#735563;font-size:1.05rem}
+.floating{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10}
+.floating span{position:absolute;bottom:-40px;animation:float 8s linear infinite;opacity:.45}
+.floating span:nth-child(1){left:8%;animation-delay:0s}
+.floating span:nth-child(2){left:25%;animation-delay:2s}
+.floating span:nth-child(3){left:50%;animation-delay:4s}
+.floating span:nth-child(4){left:75%;animation-delay:1s}
+.floating span:nth-child(5){left:92%;animation-delay:5s}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(22,10,16,.88);z-index:30;align-items:center;justify-content:center;padding:25px}
+.lightbox.show{display:flex}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:18px;box-shadow:0 20px 80px rgba(0,0,0,.4)}
+.close{position:absolute;top:18px;right:22px;color:white;background:none;border:0;font-size:2.4rem;cursor:pointer}
+footer{text-align:center;padding:25px;color:#8b6875;font-size:.85rem}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+@keyframes float{0%{transform:translateY(0) rotate(0);opacity:0}15%{opacity:.45}100%{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+@media(max-width:800px){.gallery{grid-template-columns:repeat(2,1fr)}.photo-card img{height:270px}.letter{padding:30px 23px}}
+@media(max-width:520px){.hero-card{padding:44px 18px 38px;border-radius:26px}section{padding:65px 0}.gallery{grid-template-columns:1fr}.photo-card img{height:360px}}
+</style>
+</head>
+<body>
+<div class="floating"><span>♥</span><span>♡</span><span>♥</span><span>♡</span><span>♥</span></div>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-card">
+      <div class="heart">❤️</div>
+      <div class="kicker">Um dia especial para uma pessoa especial</div>
+      <h1>Feliz Aniversário, Mãe!</h1>
+      <p>Hoje é dia de celebrar a mulher incrível que você é e agradecer por todos os momentos, sorrisos e lembranças que construímos juntos.</p>
+      <a class="btn" href="#mensagem">Ler minha mensagem 💌</a>
+    </div>
+  </div>
+</header>
+
+<section id="mensagem">
+  <div class="container">
+    <h2 class="section-title">Para a melhor mãe do mundo</h2>
+    <p class="section-subtitle">Uma pequena mensagem para dizer algo que às vezes é difícil colocar em palavras.</p>
+    <article class="letter">
+      <p>Mãe, hoje é um dia muito especial, porque é o dia de celebrar a pessoa que sempre esteve ao meu lado.</p>
+      <p>Quero te agradecer por todo amor, carinho, cuidado e por tudo que você faz por mim. Sei que nem sempre consigo demonstrar o quanto você é importante para mim, mas quero que saiba que eu te amo muito e sou muito grato por ter você na minha vida.</p>
+      <p>Você é uma pessoa incrível, forte, especial e merece tudo de melhor que existe. Espero que seu aniversário seja cheio de felicidade, sorrisos e momentos inesquecíveis.</p>
+      <p>Que Deus te abençoe, te dê muita saúde, felicidade e muitos anos de vida para que possamos viver ainda muitos momentos juntos.</p>
+      <p class="signature">Feliz aniversário, mãe! ❤️<br>Eu te amo muito!</p>
+    </article>
+  </div>
+</section>
+
+<section id="fotos">
+  <div class="container">
+    <h2 class="section-title">Nossas lembranças 📸</h2>
+    <p class="section-subtitle">Alguns momentos especiais que merecem ficar guardados para sempre.</p>
+    <div class="gallery">
+      <figure class="photo-card" onclick="openLightbox(1)">
+      <img src="foto1.jpg" alt="Momento especial em família">
+      <figcaption>Momentos que guardamos para sempre ❤️</figcaption>
+    </figure>
+<figure class="photo-card" onclick="openLightbox(2)">
+      <img src="foto2.jpg" alt="Momento especial em família">
+      <figcaption>Família, sorrisos e muito amor ✨</figcaption>
+    </figure>
+<figure class="photo-card" onclick="openLightbox(3)">
+      <img src="foto3.jpg" alt="Momento especial em família">
+      <figcaption>Mais uma lembrança especial ao seu lado</figcaption>
+    </figure>
+<figure class="photo-card" onclick="openLightbox(4)">
+      <img src="foto4.jpg" alt="Momento especial em família">
+      <figcaption>Porque os melhores momentos são juntos</figcaption>
+    </figure>
+<figure class="photo-card" onclick="openLightbox(5)">
+      <img src="foto5.jpg" alt="Momento especial em família">
+      <figcaption>Uma vida cheia de histórias lindas</figcaption>
+    </figure>
+<figure class="photo-card" onclick="openLightbox(6)">
+      <img src="foto6.jpg" alt="Momento especial em família">
+      <figcaption>Que nunca faltem motivos para sorrir 💕</figcaption>
+    </figure>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container">
+    <div class="heart">💗</div>
+    <div class="big">Você é muito especial!</div>
+    <p>Que seu novo ano seja cheio de amor, paz, saúde, felicidade e muitos momentos lindos.</p>
+    <p style="margin-top:14px;font-weight:700;color:#8d3159">Feliz aniversário, mãe! 🎂✨</p>
+  </div>
+</section>
+
+<footer>Feito com muito amor ❤️</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="close" aria-label="Fechar">×</button>
+  <img id="lightboxImg" src="" alt="Foto ampliada">
+</div>
+
+<script>
+const photos = ["foto1.jpg", "foto2.jpg", "foto3.jpg", "foto4.jpg", "foto5.jpg", "foto6.jpg"];
+function openLightbox(index) {
+  document.getElementById("lightboxImg").src = photos[index - 1];
+  document.getElementById("lightbox").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("show");
+  document.body.style.overflow = "";
+}
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeLightbox();
+});
+</script>
+</body>
+</html>
